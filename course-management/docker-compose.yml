@@ -1,18 +1,19 @@
 version: '3.8'
 services:
   db:
-    image: mysql:8.0
+    image: postgres:14
     environment:
-      - MYSQL_ROOT_PASSWORD=rootpassword
-      - MYSQL_DATABASE=course_management_db
+      - POSTGRES_USER=${DB_USERNAME:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-password}
+      - POSTGRES_DB=course_management_db
     ports:
-      - "3307:3306"
+      - "5432:5432"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - pgdata:/var/lib/postgresql/data
     networks:
       - app-network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootpassword"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-postgres}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -23,9 +24,10 @@ services:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
-      - DATABASE_URL=jdbc:mysql://db:3306/course_management_db
-      - DB_USERNAME=root
-      - DB_PASSWORD=rootpassword
+      - DATABASE_URL=jdbc:postgresql://db:5432/course_management_db
+      - DB_USERNAME=${DB_USERNAME:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-password}
+      - PORT=8080
     depends_on:
       db:
         condition: service_healthy
@@ -42,7 +44,7 @@ services:
       - app-network
 
 volumes:
-  mysql_data:
+  pgdata:
 
 networks:
   app-network:
