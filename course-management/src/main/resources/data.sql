@@ -1,9 +1,3 @@
-DELETE FROM grades;
-DELETE FROM student_enrollments;
-DELETE FROM students;
-DELETE FROM courses;
-
-
 INSERT INTO courses (code, title, description, credits) VALUES
                                                             ('CS101', 'Introduction to Computer Science', 'Basic programming concepts and problem solving', 3),
                                                             ('CS201', 'Data Structures', 'Arrays, linked lists, stacks, queues, and trees', 3),
