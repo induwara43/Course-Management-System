@@ -379,18 +379,18 @@ const GradeEntry = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr><td>85-100</td><td><span className="badge bg-success">A+</span></td><td>4.00</td><td><span className="badge bg-success">PASS</span></td></tr>
-                      <tr><td>70-84</td><td><span className="badge bg-success">A</span></td><td>4.00</td><td><span className="badge bg-success">PASS</span></td></tr>
-                      <tr><td>65-69</td><td><span className="badge bg-info">A-</span></td><td>3.70</td><td><span className="badge bg-success">PASS</span></td></tr>
-                      <tr><td>60-64</td><td><span className="badge bg-info">B+</span></td><td>3.30</td><td><span className="badge bg-success">PASS</span></td></tr>
-                      <tr><td>55-59</td><td><span className="badge bg-primary">B</span></td><td>3.00</td><td><span className="badge bg-success">PASS</span></td></tr>
-                      <tr><td>50-54</td><td><span className="badge bg-primary">B-</span></td><td>2.70</td><td><span className="badge bg-success">PASS</span></td></tr>
-                      <tr><td>45-49</td><td><span className="badge bg-warning">C+</span></td><td>2.30</td><td><span className="badge bg-success">PASS</span></td></tr>
-                      <tr><td>40-44</td><td><span className="badge bg-warning">C</span></td><td>2.00</td><td><span className="badge bg-success">PASS</span></td></tr>
-                      <tr><td>35-39</td><td><span className="badge bg-secondary">C-</span></td><td>1.70</td><td><span className="badge bg-warning">COMPLETE</span></td></tr>
-                      <tr><td>30-34</td><td><span className="badge bg-secondary">D+</span></td><td>1.30</td><td><span className="badge bg-warning">COMPLETE</span></td></tr>
-                      <tr><td>25-29</td><td><span className="badge bg-secondary">D</span></td><td>1.00</td><td><span className="badge bg-warning">COMPLETE</span></td></tr>
-                      <tr><td>0-24</td><td><span className="badge bg-danger">E</span></td><td>0.00</td><td><span className="badge bg-danger">INCOMPLETE</span></td></tr>
+                      <tr><td>85-100</td><td><span className="badge bg-success">A+</span></td><td>4.0</td><td><span className="badge bg-success">PASS</span></td></tr>
+                      <tr><td>70-84</td><td><span className="badge bg-success">A</span></td><td>4.0</td><td><span className="badge bg-success">PASS</span></td></tr>
+                      <tr><td>65-69</td><td><span className="badge bg-success">A-</span></td><td>3.7</td><td><span className="badge bg-success">PASS</span></td></tr>
+                      <tr><td>60-64</td><td><span className="badge bg-success">B+</span></td><td>3.3</td><td><span className="badge bg-success">PASS</span></td></tr>
+                      <tr><td>55-59</td><td><span className="badge bg-success">B</span></td><td>3.0</td><td><span className="badge bg-success">PASS</span></td></tr>
+                      <tr><td>50-54</td><td><span className="badge bg-success">B-</span></td><td>2.7</td><td><span className="badge bg-success">PASS</span></td></tr>
+                      <tr><td>45-49</td><td><span className="badge bg-success">C+</span></td><td>2.3</td><td><span className="badge bg-success">PASS</span></td></tr>
+                      <tr><td>40-44</td><td><span className="badge bg-success">C</span></td><td>2.0</td><td><span className="badge bg-success">PASS</span></td></tr>
+                      <tr><td>35-39</td><td><span className="badge bg-warning">C-</span></td><td>1.7</td><td><span className="badge bg-warning">COMPLETE</span></td></tr>
+                      <tr><td>30-34</td><td><span className="badge bg-warning">D+</span></td><td>1.3</td><td><span className="badge bg-warning">COMPLETE</span></td></tr>
+                      <tr><td>25-29</td><td><span className="badge bg-warning">D</span></td><td>1.0</td><td><span className="badge bg-warning">COMPLETE</span></td></tr>
+                      <tr><td>00-24</td><td><span className="badge bg-danger">E</span></td><td>0.0</td><td><span className="badge bg-danger">INCOMPLETE</span></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -400,7 +400,7 @@ const GradeEntry = () => {
         </div>
       </div>
 
-      {/* Course Grades Display */}
+      
       {selectedCourse && (
         <div className="card">
           <div className="card-header">

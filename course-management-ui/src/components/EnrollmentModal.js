@@ -40,9 +40,9 @@ const EnrollmentModal = ({ show, onHide, student, onEnrollmentUpdate }) => {
     setLoading(true);
     try {
       await studentApi.enroll(student.id, courseId);
-      await fetchStudentCourses(); // Refresh enrolled courses
+      await fetchStudentCourses(); 
       if (onEnrollmentUpdate) {
-        onEnrollmentUpdate(); // Notify parent component
+        onEnrollmentUpdate(); 
       }
     } catch (error) {
       console.error('Error enrolling student:', error);
@@ -56,9 +56,9 @@ const EnrollmentModal = ({ show, onHide, student, onEnrollmentUpdate }) => {
     setLoading(true);
     try {
       await studentApi.unenroll(student.id, courseId);
-      await fetchStudentCourses(); // Refresh enrolled courses
+      await fetchStudentCourses(); 
       if (onEnrollmentUpdate) {
-        onEnrollmentUpdate(); // Notify parent component
+        onEnrollmentUpdate(); 
       }
     } catch (error) {
       console.error('Error unenrolling student:', error);

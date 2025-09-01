@@ -11,7 +11,7 @@ const getGradeColor = (score) => {
 const getStatusColor = (status) => {
   if (status === 'PASS') return 'success';
   if (status === 'COMPLETE') return 'warning';
-  return 'danger'; // INCOMPLETE
+  return 'danger';
 };
 
 
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
       const [coursesRes, studentsRes, gradesRes] = await Promise.all([
         courseApi.getAll(),
         studentApi.getAll(),
-        import('../services/api').then(api => api.gradeApi.getAll()) // lazy-load gradeApi
+        import('../services/api').then(api => api.gradeApi.getAll())
       ]);
 
       setStats({
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
         totalStudents: studentsRes.data.length
       });
 
-      // Get 5 most recent grades
+      
       const sortedGrades = gradesRes.data
         .sort((a, b) => new Date(b.gradeDate) - new Date(a.gradeDate))
         .slice(0, 5);
@@ -69,7 +69,7 @@ const AdminDashboard = () => {
         <h2><i className="fas fa-tachometer-alt me-2"></i>Admin Dashboard</h2>
       </div>
 
-      {/* Statistics Cards */}
+      
       <div className="row mb-4">
         <div className="col-md-6 mb-3">
           <div className="card bg-primary text-white h-100">
@@ -114,7 +114,7 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      {/* Quick Actions */}
+      
       <div className="row mb-4">
         <div className="col-12">
           <h5>Quick Actions</h5>
@@ -143,7 +143,7 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      {/* Recent Activities */}
+  
       <div className="row">
         <div className="col-12">
           <h5>Recent Grade Entries</h5>

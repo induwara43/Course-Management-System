@@ -63,21 +63,20 @@ const StudentTranscript = () => {
     const passed = grades.filter(g => g.status === 'PASS').length;
     const completed = grades.filter(g => g.status === 'COMPLETE').length;
     const incomplete = grades.filter(g => g.status === 'INCOMPLETE').length;
-    
-    // ALL credits attempted (including incomplete)
+   
     const totalCredits = grades.reduce((sum, g) => sum + g.course.credits, 0);
     
-    // Credits earned (PASS only)
+
     const creditsEarned = grades
       .filter(g => g.status === 'PASS')
       .reduce((sum, g) => sum + g.course.credits, 0);
     
-    // Credits completed (PASS + COMPLETE)
+    
     const creditsCompleted = grades
       .filter(g => g.status === 'PASS' || g.status === 'COMPLETE')
       .reduce((sum, g) => sum + g.course.credits, 0);
     
-    // Quality Points (GPV × Credits for ALL courses including 0 GPV for incomplete)
+    
     const qualityPoints = grades.reduce((sum, g) => {
       const gpv = g.gradePointValue || 0;
       return sum + (gpv * g.course.credits);
@@ -95,27 +94,13 @@ const StudentTranscript = () => {
     };
   };
 
-  const getGradeColor = (score) => {
-    if (score >= 70) return 'success';
-    else if (score >= 60) return 'info';
-    else if (score >= 50) return 'primary';
-    else if (score >= 40) return 'warning';
-    else if (score >= 25) return 'secondary';
-    else return 'danger';
-  };
-
   const getStatusColor = (status) => {
     if (status === 'PASS') return 'success';
     else if (status === 'COMPLETE') return 'warning';
     else return 'danger';
   };
 
-  const getGPAClass = (gpa) => {
-    if (gpa >= 3.7) return 'success';
-    else if (gpa >= 3.0) return 'info';
-    else if (gpa >= 2.0) return 'warning';
-    else return 'danger';
-  };
+
 
   const selectedStudentData = students.find(s => s.id == selectedStudent);
   const stats = getGradeStats();
@@ -124,7 +109,7 @@ const StudentTranscript = () => {
     <div className="container mt-4">
       <h2>Student Academic Transcript</h2>
       
-      {/* Student Selection */}
+    
       <div className="row mb-4">
         <div className="col-md-6">
           <div className="card">
@@ -149,7 +134,6 @@ const StudentTranscript = () => {
 
       {selectedStudentData && (
         <>
-          {/* Official Transcript Header */}
           <div className="card mb-4">
             <div className="card-header bg-primary text-white text-center">
               <h3>OFFICIAL ACADEMIC TRANSCRIPT</h3>
@@ -191,15 +175,15 @@ const StudentTranscript = () => {
                       </tr>
                       <tr>
                         <td><strong>Passed:</strong></td>
-                        <td><span className="text-success">{stats.passed}</span></td>
+                        <td><span>{stats.passed}</span></td>
                       </tr>
                       <tr>
                         <td><strong>Completed:</strong></td>
-                        <td><span className="text-warning">{stats.completed}</span></td>
+                        <td><span >{stats.completed}</span></td>
                       </tr>
                       <tr>
                         <td><strong>Incomplete:</strong></td>
-                        <td><span className="text-danger">{stats.incomplete}</span></td>
+                        <td><span >{stats.incomplete}</span></td>
                       </tr>
                       <tr>
                         <td><strong>Credits Attempted:</strong></td>
@@ -207,33 +191,27 @@ const StudentTranscript = () => {
                       </tr>
                       <tr>
                         <td><strong>Credits Earned:</strong></td>
-                        <td><span className="text-success"><strong>{stats.creditsEarned}</strong></span></td>
+                        <td><span><strong>{stats.creditsEarned}</strong></span></td>
                       </tr>
                       <tr>
                         <td><strong>Total GPV:</strong></td>
                         <td><strong>{stats.qualityPoints.toFixed(2)}</strong></td>
                       </tr>
+                      <tr>
+                            <td className="fw-bold">GPA:</td>
+                            <td>
+                              <span className="fw-bold">
+                                {gpa.toFixed(2)}
+                              </span>
+                            </td>
+                          </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
               
               {/* GPA Display with explanation */}
-              <div className="row mt-3">
-                <div className="col-12 text-center">
-                  <div className="alert alert-info">
-                    <h4>
-                      <strong>Cumulative Grade Point Average (GPA): </strong>
-                      <span className={`badge bg-${getGPAClass(gpa)} fs-4`}>
-                        {gpa.toFixed(3)}
-                      </span>
-                    </h4>
-                    <small className="text-muted">
-                      GPA = {stats.qualityPoints.toFixed(2)} Total GPV ÷ {stats.totalCredits} Total Credits<br/>
-                    </small>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
 
@@ -277,7 +255,7 @@ const StudentTranscript = () => {
                           <td><strong>{grade.course.code}</strong></td>
                           <td>{grade.course.title}</td>
                           <td>
-                            <span className="badge bg-secondary">{grade.course.credits}</span>
+                            <span>{grade.course.credits}</span>
                           </td>
                           {/* <td>
                             <strong className={`text-${getGradeColor(grade.score)}`}>
@@ -285,13 +263,13 @@ const StudentTranscript = () => {
                             </strong>
                           </td> */}
                           <td>
-                            <span className={`badge bg-${getGradeColor(grade.score)}`}>
-                              {grade.letterGrade}
+                            <span >
+                              {grade.letterGrade}   
                             </span>
                           </td>
                           <td>
-                            <span className="badge bg-info">
-                              {grade.gradePointValue ? grade.gradePointValue.toFixed(2) : '0.00'}
+                            <span >
+                              {grade.gradePointValue ? grade.gradePointValue.toFixed(1) : '0.00'}
                             </span>
                           </td>
                           <td>
@@ -317,7 +295,7 @@ const StudentTranscript = () => {
                 </div>
 
                 {/* Totals Row */}
-                <div className="table-responsive">
+                {/* <div className="table-responsive">
                   <table className="table table-borderless">
                     <tbody>
                       <tr className="table-info">
@@ -328,13 +306,13 @@ const StudentTranscript = () => {
                         <td></td>
                         <td></td>
                         <td><strong>{stats.qualityPoints.toFixed(2)} Total GPV</strong></td>
-                        <td><strong>GPA: {gpa.toFixed(3)}</strong></td>
+                        <td><strong>GPA: {gpa.toFixed(2)}</strong></td>
                         <td></td>
                         <td></td>
                       </tr>
                     </tbody>
                   </table>
-                </div>
+                </div> */}
 
                 {/* Legend */}
                 <div className="row mt-4">
@@ -360,26 +338,21 @@ const StudentTranscript = () => {
                 </div>
 
                 {/* Transcript Footer */}
-                <div className="row mt-4">
-                  <div className="col-12">
-                    <hr/>
-                    <div className="text-center text-muted">
-                      <small>
-                        <strong>End of Official Transcript</strong><br/>
-                        Generated on: {new Date().toLocaleString()}<br/>
-                        This transcript contains {grades.length} course records<br/>
-                        Cumulative GPA: {gpa.toFixed(2)}
-                      </small>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
+            
           )}
         </>
+        
       )}
+   <div className="flex-grow-1"></div>
+
+
     </div>
+    
   );
+  
 };
 
 export default StudentTranscript;

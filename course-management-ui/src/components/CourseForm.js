@@ -4,7 +4,7 @@ import { courseApi } from '../services/api';
 
 const CourseForm = () => {
   const navigate = useNavigate();
-  const { id } = useParams(); // For editing existing course
+  const { id } = useParams();
   const isEdit = Boolean(id);
 
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const CourseForm = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  // Load course data if editing
+  
   useEffect(() => {
     if (isEdit) {
       fetchCourse();
@@ -46,7 +46,6 @@ const CourseForm = () => {
       [name]: value
     }));
 
-    // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -89,7 +88,7 @@ const CourseForm = () => {
         await courseApi.create(formData);
       }
       
-      // Navigate back to courses list
+      
       navigate('/courses');
     } catch (error) {
       console.error('Error saving course:', error);

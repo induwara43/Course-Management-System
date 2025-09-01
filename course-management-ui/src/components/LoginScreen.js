@@ -49,9 +49,9 @@ const LoginScreen = () => {
     <div className="container-fluid vh-100">
       <div className="row h-100">
         {/* Left Side - Admin Login */}
-        <div className="col-md-6 d-flex align-items-center justify-content-center bg-primary">
+        <div className="col-md-6 d-flex align-items-center justify-content-center">
           <div className="card shadow-lg" style={{width: '400px'}}>
-            <div className="card-header bg-dark text-white text-center">
+            <div className="card-header bg-primary text-white text-center">
               <h3><i className="fas fa-user-shield"></i> Admin Login</h3>
               <p className="mb-0">Course Management System</p>
             </div>
@@ -97,7 +97,7 @@ const LoginScreen = () => {
 
                 <button
                   type="submit"
-                  className="btn btn-dark w-100"
+                  className="btn btn-primary w-100"
                   disabled={loading}
                 >
                   {loading ? (

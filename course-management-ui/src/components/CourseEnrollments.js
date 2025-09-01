@@ -30,7 +30,7 @@ const CourseEnrollments = () => {
     try {
       setLoading(true);
       const response = await courseApi.getStudents(id);
-      setStudents(Array.from(response.data)); // Convert Set to Array
+      setStudents(Array.from(response.data));
     } catch (error) {
       setError('Error fetching enrolled students');
       console.error(error);
