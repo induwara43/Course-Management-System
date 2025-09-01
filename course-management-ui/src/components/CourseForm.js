@@ -35,6 +35,12 @@ const CourseForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    let newValue = value;
+
+    if (name === 'code') {
+      newValue = value.toUpperCase();
+    }
+   
     setFormData(prev => ({
       ...prev,
       [name]: value

@@ -30,7 +30,7 @@ public class Course {
     public Course() {}
 
     public Course(String code, String title, String description, Integer credits) {
-        this.code = code;
+        this.code = code.toUpperCase();
         this.title = title;
         this.description = description;
         this.credits = credits;
@@ -41,7 +41,7 @@ public class Course {
     public void setId(Long id) { this.id = id; }
 
     public String getCode() { return code; }
-    public void setCode(String code) { this.code = code; }
+    public void setCode(String code) { this.code = code.toUpperCase(); }
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }

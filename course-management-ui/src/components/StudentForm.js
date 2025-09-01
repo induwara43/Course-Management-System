@@ -35,6 +35,16 @@ const StudentForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    let newValue = value;
+
+    // Force uppercase for studentId
+    if (name === 'studentId') {
+      newValue = value.toUpperCase();
+    }
+    // Force lowercase for email
+    else if (name === 'email') {
+      newValue = value.toLowerCase();
+    }
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -69,9 +79,10 @@ const StudentForm = () => {
       newErrors.studentId = 'Student ID is required';
     }
 
-    if (formData.phoneNumber && !/^\d{10}$/.test(formData.phoneNumber.replace(/[^\d]/g, ''))) {
-      newErrors.phoneNumber = 'Please enter a valid 10-digit phone number';
-    }
+   if (formData.phoneNumber && !/^\d{10}$/.test(formData.phoneNumber)) {
+  newErrors.phoneNumber = 'Please enter a valid 10-digit phone number';
+}
+
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

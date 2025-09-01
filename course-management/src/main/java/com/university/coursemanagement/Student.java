@@ -22,6 +22,8 @@ public class Student {
     private String email;
 
     private String phoneNumber;
+
+    @Column(nullable = false, unique = true)
     private String studentId;
 
     @ManyToMany
@@ -38,8 +40,8 @@ public class Student {
     public Student(String firstName, String lastName, String email, String studentId) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.studentId = studentId;
+        this.email = email.toLowerCase();
+        this.studentId = studentId.toUpperCase();
     }
 
     // Getters and Setters
@@ -53,13 +55,13 @@ public class Student {
     public void setLastName(String lastName) { this.lastName = lastName; }
 
     public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public void setEmail(String email) { this.email = email.toLowerCase(); }
 
     public String getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public String getStudentId() { return studentId; }
-    public void setStudentId(String studentId) { this.studentId = studentId; }
+    public void setStudentId(String studentId) { this.studentId = studentId.toUpperCase(); }
 
     public Set<Course> getEnrolledCourses() { return enrolledCourses; }
     public void setEnrolledCourses(Set<Course> enrolledCourses) { this.enrolledCourses = enrolledCourses; }
