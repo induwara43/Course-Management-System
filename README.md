@@ -1,7 +1,6 @@
 # Course Management System - Deployment Instructions
 
 ## Option 1: Access Live Application
-
 The application is already deployed and accessible at:
 **[https://course-management-system-fef1.onrender.com](https://course-management-system-fef1.onrender.com)**
 
@@ -9,6 +8,9 @@ The application is already deployed and accessible at:
 - **Admin Login:** 
   - Username: `admin`
   - Password: `admin123`
+
+### Important Note:
+Since this application is hosted on Render's free tier, **the application will automatically shutdown during periods of inactivity**. When you first access the application after it has been idle, it will take approximately **2-3 minutes** to start up again. Please be patient during the initial loading... once the application is active, it will work normally.
 
 ---
 
@@ -81,12 +83,10 @@ docker-compose down -v
 - Student Management (Add/Edit/Delete students)
 - Grade Entry and Management
 - Student Enrollment in Courses
-- Generate Student Transcripts
 
 ### Student Portal
-- View enrolled courses
 - Check grades and transcripts
-- Course catalog browsing
+- Generate & Print Student Transcript
 
 ---
 
