@@ -175,9 +175,9 @@ const GradeEntry = () => {
   };
 
   const getStatusColor = (score) => {
-    if (score >= 40) return 'success';      // PASS
-    else if (score >= 25) return 'warning'; // COMPLETE
-    else return 'danger';                   // INCOMPLETE
+    if (score >= 40) return 'success';      
+    else if (score >= 25) return 'warning'; 
+    else return 'danger';                   
   };
 
   const isStudentAlreadyGraded = (studentId) => {
@@ -188,7 +188,7 @@ const GradeEntry = () => {
     <div className="container mt-4">
       <h2>Grade Entry System</h2>
       
-      {/* Grade Entry Form */}
+      
       <div className="row mb-4">
         <div className="col-md-6">
           <div className="card">
@@ -197,7 +197,7 @@ const GradeEntry = () => {
             </div>
             <div className="card-body">
               <form onSubmit={handleSubmit}>
-                {/* Course Selection */}
+               
                 <div className="mb-3">
                   <label className="form-label">Select Course *</label>
                   <select
@@ -218,7 +218,6 @@ const GradeEntry = () => {
                   </small>
                 </div>
 
-                {/* Student Selection */}
                 <div className="mb-3">
                   <label className="form-label">Select Student *</label>
                   <select
@@ -259,7 +258,7 @@ const GradeEntry = () => {
                   </small>
                 </div>
 
-                {/* Score Input */}
+               
                 <div className="mb-3">
                   <label className="form-label">Score (0-100) *</label>
                   <input
@@ -278,7 +277,7 @@ const GradeEntry = () => {
                   </small>
                 </div>
 
-                {/* Remarks */}
+                
                 <div className="mb-3">
                   <label className="form-label">Remarks</label>
                   <textarea
@@ -303,7 +302,7 @@ const GradeEntry = () => {
           </div>
         </div>
 
-        {/* Grade Preview */}
+        
         <div className="col-md-6">
           <div className="card">
             <div className="card-header">
@@ -365,7 +364,7 @@ const GradeEntry = () => {
                 </div>
               )}
               
-              {/* Updated Grading Scale Reference */}
+            
               <div className="mt-3">
                 <h6>University Grading Scale:</h6>
                 <div className="table-responsive">

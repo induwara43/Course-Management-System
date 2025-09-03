@@ -34,7 +34,7 @@ public class Student {
     )
     private Set<Course> enrolledCourses = new HashSet<>();
 
-    // Constructors
+
     public Student() {}
 
     public Student(String firstName, String lastName, String email, String studentId) {
@@ -44,7 +44,7 @@ public class Student {
         this.studentId = studentId.toUpperCase();
     }
 
-    // Getters and Setters
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

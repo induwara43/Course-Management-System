@@ -11,12 +11,10 @@ const Navigation = () => {
     window.location.href = '/';
   };
 
-  // Don't show navigation on login page or student portal
   if (location.pathname === '/' || location.pathname === '/student/portal') {
     return null;
   }
 
-  // Don't show navigation for students or if not authenticated
   if (userRole === 'student' || !isAuthenticated) {
     return null;
   }

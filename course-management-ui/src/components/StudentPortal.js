@@ -211,10 +211,8 @@ const StudentPortal = () => {
             </div>
           </div>
 
-          {/* Student Results Display */}
           {student && (
             <>
-              {/* Printable Content */}
               <div id="printable-content" className="d-none">
                 <div className="p-4">
                   <div className="text-center mb-4">
@@ -324,7 +322,6 @@ const StudentPortal = () => {
                 </div>
               </div>
 
-              {/* Student Info Card */}
               <div className="card shadow-lg mb-4 border-0">
                 <div className="card-header bg-success text-white">
                   <h4 className="mb-0">
@@ -471,7 +468,6 @@ const StudentPortal = () => {
                       </table>
                     </div>
 
-                    {/* Print Button */}
                     <div className="p-3 bg-light border-top">
                       <div className="text-center">
                         <button 
@@ -517,7 +513,6 @@ const StudentPortal = () => {
       </div>
     
  
-      {/* Footer - Sticky to bottom */}
       <footer className="bg-dark text-white text-center py-3 mt-auto">
         <div className="container">
           <small>

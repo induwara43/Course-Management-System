@@ -37,11 +37,9 @@ const StudentForm = () => {
     const { name, value } = e.target;
     let newValue = value;
 
-    // Force uppercase for studentId
     if (name === 'studentId') {
       newValue = value.toUpperCase();
     }
-    // Force lowercase for email
     else if (name === 'email') {
       newValue = value.toLowerCase();
     }

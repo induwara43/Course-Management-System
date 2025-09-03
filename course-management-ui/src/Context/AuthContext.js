@@ -12,10 +12,9 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userRole, setUserRole] = useState(null); // 'admin' or 'student'
+  const [userRole, setUserRole] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
 
-  // Simple admin credentials (in real app, this would be from backend)
   const adminCredentials = {
     username: 'admin',
     password: 'admin123'
@@ -49,7 +48,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('userRole');
   };
 
-  // Check if user is already logged in (for page refresh)
   React.useEffect(() => {
     const token = localStorage.getItem('authToken');
     const role = localStorage.getItem('userRole');

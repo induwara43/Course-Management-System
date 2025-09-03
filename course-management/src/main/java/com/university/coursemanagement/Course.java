@@ -23,10 +23,10 @@ public class Course {
     private Integer credits;
 
     @ManyToMany(mappedBy = "enrolledCourses")
-    @JsonIgnore  // This prevents circular reference
+    @JsonIgnore
     private Set<Student> enrolledStudents = new HashSet<>();
 
-    // Constructors
+
     public Course() {}
 
     public Course(String code, String title, String description, Integer credits) {
@@ -36,7 +36,7 @@ public class Course {
         this.credits = credits;
     }
 
-    // Getters and Setters (keep all existing ones)
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

@@ -64,31 +64,30 @@ public class StudentController {
     }
 
     // DELETE student
-    // DELETE student
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteStudent(@PathVariable Long id) {
         if (!studentRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
 
-        // 1. Delete all grades for this student
+
         gradeRepository.findByStudentId(id)
                 .forEach(grade -> gradeRepository.deleteById(grade.getId()));
 
-        // 2. Unlink enrollments: remove this student from each course's enrolledStudents
+
         courseRepository.findAll().forEach(course -> {
             if (course.getEnrolledStudents().removeIf(student -> student.getId().equals(id))) {
                 courseRepository.save(course);
             }
         });
 
-        // 3. Delete the student
+
         studentRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
 
-    // POST enroll student in course
+
     @PostMapping("/{studentId}/enroll/{courseId}")
     public ResponseEntity<Student> enrollStudent(@PathVariable Long studentId, @PathVariable Long courseId) {
         Optional<Student> studentOpt = studentRepository.findById(studentId);
@@ -107,7 +106,7 @@ public class StudentController {
         return ResponseEntity.notFound().build();
     }
 
-    // DELETE unenroll student from course
+
     @DeleteMapping("/{studentId}/unenroll/{courseId}")
     public ResponseEntity<Student> unenrollStudent(@PathVariable Long studentId, @PathVariable Long courseId) {
         Optional<Student> studentOpt = studentRepository.findById(studentId);
@@ -126,7 +125,7 @@ public class StudentController {
         return ResponseEntity.notFound().build();
     }
 
-    // GET student's enrolled courses
+
     @GetMapping("/{id}/courses")
     public ResponseEntity<List<Course>> getStudentCourses(@PathVariable Long id) {
         Optional<Student> student = studentRepository.findById(id);

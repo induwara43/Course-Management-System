@@ -48,7 +48,7 @@ const LoginScreen = () => {
   return (
     <div className="container-fluid vh-100">
       <div className="row h-100">
-        {/* Left Side - Admin Login */}
+   
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <div className="card shadow-lg" style={{width: '400px'}}>
             <div className="card-header bg-primary text-white text-center">
@@ -124,7 +124,6 @@ const LoginScreen = () => {
           </div>
         </div>
 
-        {/* Right Side - Student Portal */}
         <div className="col-md-6 d-flex align-items-center justify-content-center bg-light">
           <div className="card shadow-lg" style={{width: '400px'}}>
             <div className="card-header bg-success text-white text-center">
@@ -157,7 +156,6 @@ const LoginScreen = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <div className="position-fixed bottom-0 start-0 end-0 bg-dark text-white text-center py-2">
         <small>
           <i className="fas fa-university"></i> University Course Management System - 

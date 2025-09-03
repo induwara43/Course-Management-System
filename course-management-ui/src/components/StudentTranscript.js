@@ -210,12 +210,10 @@ const StudentTranscript = () => {
                 </div>
               </div>
               
-              {/* GPA Display with explanation */}
               
             </div>
           </div>
 
-          {/* Course Grades Table */}
           {loading ? (
             <div className="text-center">
               <div className="spinner-border" role="status">
@@ -314,7 +312,6 @@ const StudentTranscript = () => {
                   </table>
                 </div> */}
 
-                {/* Legend */}
                 <div className="row mt-4">
                   <div className="col-12">
                     <h6>Grading Scale & GPA Calculation:</h6>
@@ -337,7 +334,6 @@ const StudentTranscript = () => {
                   </div>
                 </div>
 
-                {/* Transcript Footer */}
                 
               </div>
             </div>

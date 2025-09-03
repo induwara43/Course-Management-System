@@ -73,7 +73,6 @@ const StudentList = () => {
         </Link>
       </div>
 
-      {/* Live Search Bar */}
       <div className="mb-3">
         <input
           type="text"
@@ -136,7 +135,6 @@ const StudentList = () => {
         </div>
       )}
 
-      {/* Enrollment Modal */}
       <EnrollmentModal
         show={showEnrollmentModal}
         onHide={() => setShowEnrollmentModal(false)}

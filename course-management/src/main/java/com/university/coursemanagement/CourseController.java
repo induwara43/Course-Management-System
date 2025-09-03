@@ -24,28 +24,28 @@ public class CourseController {
     private StudentRepository studentRepository;
 
 
-    // GET all courses
+
     @GetMapping
     public ResponseEntity<List<Course>> getAllCourses() {
         List<Course> courses = courseRepository.findAll();
         return ResponseEntity.ok(courses);
     }
 
-    // GET course by ID
+
     @GetMapping("/{id}")
     public ResponseEntity<Course> getCourseById(@PathVariable Long id) {
         Optional<Course> course = courseRepository.findById(id);
         return course.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    // POST create new course
+
     @PostMapping
     public ResponseEntity<Course> createCourse(@RequestBody Course course) {
         Course savedCourse = courseRepository.save(course);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedCourse);
     }
 
-    // PUT update course
+
     @PutMapping("/{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestBody Course courseDetails) {
         Optional<Course> courseOpt = courseRepository.findById(id);
@@ -63,26 +63,25 @@ public class CourseController {
         return ResponseEntity.notFound().build();
     }
 
-    // DELETE course
-    // DELETE course
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCourse(@PathVariable Long id) {
         if (!courseRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
 
-        // 1. Delete all grades for this course
+
         gradeRepository.findByCourseId(id)
                 .forEach(grade -> gradeRepository.deleteById(grade.getId()));
 
-        // 2. Unlink enrollments: remove this course from each student's enrolledCourses
+
         studentRepository.findAll().forEach(student -> {
             if (student.getEnrolledCourses().removeIf(course -> course.getId().equals(id))) {
                 studentRepository.save(student);
             }
         });
 
-        // 3. Delete the course
+
         courseRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
